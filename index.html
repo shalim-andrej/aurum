@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══ SEO ══ -->
+  <title>AURUM — бутик-отель 5★ в Сочи | Номера у моря, СПА, ресторан</title>
+  <meta name="description" content="AURUM — бутик-отель 5★ на берегу моря в Сочи. 42 номера с видом на море, спа-центр 800 м², террасная кухня шефа Александра Гринёва. Частный пляж, бассейн-инфинити, завтрак включён.">
+  <meta name="keywords" content="бутик-отель Сочи, отель 5 звезд Сочи, отель у моря, спа-отель Сочи, AURUM">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#FBF9F4">
+
+  <!-- ══ Open Graph ══ -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="AURUM · Бутик-отель">
+  <meta property="og:title" content="AURUM — бутик-отель 5★ в Сочи | Номера у моря, СПА, ресторан">
+  <meta property="og:description" content="42 номера с видом на море, спа-центр 800 м² и террасная кухня от шефа Александра Гринёва. Роскошь, которую хочется потрогать.">
+  <meta property="og:image" content="assets/img/hero-poster.jpg">
+  <meta property="og:url" content="https://aurum-sochi.ru/">
+
+  <!-- ══ Favicon: золота монограмма A ══ -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F1B16'/%3E%3Ctext x='32' y='45' font-family='Georgia, serif' font-size='38' fill='%23B08D57' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+
+  <!-- ══ Fonts: Playfair Display + Montserrat (кириллица) ══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- ══ JSON-LD: структурированные данные отеля ══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "name": "AURUM — бутик-отель 5★",
+    "description": "Бутик-отель 5★ на берегу моря в Сочи: 42 номера, спа-центр 800 м², ресторан «Терраса», частный пляж.",
+    "url": "https://aurum-sochi.ru/",
+    "telephone": "+7 (861) 205-33-90",
+    "priceRange": "18000–65000 RUB",
+    "image": "assets/img/hero-poster.jpg",
+    "starRating": { "@type": "Rating", "ratingValue": "5" },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "пр. Виноградный, 12",
+      "addressLocality": "Сочи",
+      "addressRegion": "Краснодарский край",
+      "addressCountry": "RU"
+    },
+    "amenityList": [
+      "Спа-центр 800 м²",
+      "Бассейн-инфинити с морской водой",
+      "Частный пляж",
+      "Хаммам",
+      "Сауна и ледяная купель",
+      "Ресторан «Терраса»",
+      "Завтрак включён",
+      "Консьерж-сервис 24/7",
+      "Бесплатный Wi-Fi",
+      "Парковка с валет-сервисом"
+    ]
+  }
+  </script>
+</head>
+
+<body class="is-loading">
+
+  <!-- ═══════════════════ 1. PRELOADER: монограмма + золотая линия + AURUM ═══════════════════ -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <span class="preloader__monogram">A</span>
+      <span class="preloader__line"><i id="preloaderBar"></i></span>
+      <span class="preloader__word">AURUM</span>
+      <span class="preloader__percent" id="preloaderPercent">0%</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ Кастомный курсор: точка + кольцо ═══════════════════ -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <span class="cursor__dot" id="cursorDot"></span>
+    <span class="cursor__ring" id="cursorRing"></span>
+  </div>
+
+  <!-- ═══════════════════ 2. HEADER: фикс, стекло при скролле, прогресс-бар ═══════════════════ -->
+  <header class="header" id="header">
+    <div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
+
+    <div class="header__inner container">
+      <a href="#hero" class="header__logo" data-anchor aria-label="AURUM — на главную">
+        AURUM<span class="header__logo-sub">· БУТИК-ОТЕЛЬ</span>
+      </a>
+
+      <nav class="header__nav" aria-label="Основная навигация">
+        <a class="header__link" href="#rooms" data-anchor>Номера</a>
+        <a class="header__link" href="#spa" data-anchor>Спа</a>
+        <a class="header__link" href="#restaurant" data-anchor>Ресторан</a>
+        <a class="header__link" href="#gallery" data-anchor>Галерея</a>
+        <a class="header__link" href="#booking" data-anchor>Контакты</a>
+        <a class="btn btn--gold btn--sm" href="#booking" data-anchor data-magnetic>Забронировать</a>
+      </nav>
+
+      <button class="header__burger" id="burger" type="button"
+              aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Мобильное полноэкранное меню -->
+  <nav class="mnav" id="mobileMenu" aria-label="Мобильное меню">
+    <ul class="mnav__list">
+      <li class="mnav__item" style="--i:0"><a class="mnav__link" href="#rooms" data-anchor>Номера</a></li>
+      <li class="mnav__item" style="--i:1"><a class="mnav__link" href="#spa" data-anchor>Спа</a></li>
+      <li class="mnav__item" style="--i:2"><a class="mnav__link" href="#restaurant" data-anchor>Ресторан</a></li>
+      <li class="mnav__item" style="--i:3"><a class="mnav__link" href="#gallery" data-anchor>Галерея</a></li>
+      <li class="mnav__item" style="--i:4"><a class="mnav__link" href="#booking" data-anchor>Контакты</a></li>
+    </ul>
+    <div class="mnav__footer" style="--i:5">
+      <a class="btn btn--gold" href="#booking" data-anchor>Забронировать</a>
+      <p class="mnav__phone">+7 (861) 205-33-90 · стойка 24/7</p>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ═══════════════════ 3. HERO: видео 100svh + градиент ═══════════════════ -->
+    <section class="hero" id="hero">
+      <div class="hero__media" id="heroMedia">
+        <video class="hero__video" id="heroVideo" autoplay muted loop playsinline
+               preload="metadata" poster="assets/img/hero-poster.jpg" tabindex="-1">
+          <source src="assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <span class="hero__overlay" aria-hidden="true"></span>
+      </div>
+
+      <div class="hero__content container">
+        <p class="kicker kicker--light reveal" data-delay="100">Бутик-отель 5★ · Сочи, берег моря</p>
+        <h1 class="hero__title reveal" data-delay="200">Роскошь, которую<br><em>хочется потрогать</em></h1>
+        <p class="hero__sub reveal" data-delay="320">42 номера с видом на море, спа-центр 800&nbsp;м² и&nbsp;террасная кухня от&nbsp;шефа Александра Гринёва.</p>
+        <div class="hero__actions reveal" data-delay="440">
+          <a class="btn btn--gold btn--lg" href="#booking" data-anchor data-magnetic>Забронировать</a>
+          <a class="btn btn--ghost btn--lg" href="#rooms" data-anchor>Смотреть номера</a>
+        </div>
+      </div>
+
+      <a class="hero__scroll" href="#about" data-anchor aria-label="Листать вниз">
+        <span class="hero__scroll-mouse"></span>
+        <span class="hero__scroll-hint">Листайте</span>
+      </a>
+    </section>
+
+    <!-- ═══════════════════ 4. WIDGET: плавающая стеклянная карточка ═══════════════════ -->
+    <section class="widget-zone" aria-label="Быстрое бронирование">
+      <div class="container">
+        <form class="widget glass reveal" id="widgetForm" novalidate>
+          <div class="widget__field">
+            <label class="widget__label" for="w-checkin">Заезд</label>
+            <input class="widget__input" type="date" id="w-checkin" name="checkin" required>
+          </div>
+          <div class="widget__field">
+            <label class="widget__label" for="w-checkout">Выезд</label>
+            <input class="widget__input" type="date" id="w-checkout" name="checkout" required>
+          </div>
+          <div class="widget__field">
+            <label class="widget__label" for="w-guests">Гости</label>
+            <select class="widget__input" id="w-guests" name="guests">
+              <option value="1">1 гость</option>
+              <option value="2" selected>2 гостя</option>
+              <option value="3">3 гостя</option>
+              <option value="4">4 гостя</option>
+            </select>
+          </div>
+          <div class="widget__field">
+            <label class="widget__label" for="w-room">Номер</label>
+            <select class="widget__input" id="w-room" name="room">
+              <option value="classic">Классический · 28 м²</option>
+              <option value="panorama" selected>Панорамный люкс · 46 м²</option>
+              <option value="president">Президентские апартаменты · 92 м²</option>
+            </select>
+          </div>
+          <button class="btn btn--gold widget__submit" type="submit" data-magnetic>Проверить наличие</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 5. О ОТЕЛЕ: счётчики + параллакс ═══════════════════ -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__text">
+            <div class="section-head section-head--left reveal">
+              <p class="kicker">Об отеле</p>
+              <h2 class="section-title">Тихая гавань<br><em>на самом берегу</em></h2>
+            </div>
+            <p class="about__p reveal" data-delay="120">AURUM открылся в 2016 году как ответ Сочи на великие бутик-отели Лазурного берега: сорок два номера вместо четырёхсот, тишина вместо суеты и&nbsp;персонал, который помнит, каким вы любите кофе. Мы стоим на первой линии — между вас до моря всего пятьдесят метров эвкалиптовой рощи.</p>
+            <p class="about__p reveal" data-delay="220">Интерьеры создала студия Margaux &amp; Кo: натуральный камень, светлое дерево и латунь, в которую буквально хочется потрогать рукой. Утро начинается с завтрака на террасе с видом на бухту, день — в спа-центре площадью 800 м², вечер — с бокалом шампанского у бассейна-инфинити.</p>
+            <div class="about__signature reveal" data-delay="300">
+              <span class="about__signature-name">Александр Гринёв</span>
+              <span class="about__signature-role">управляющий и шеф-куратор AURUM</span>
+            </div>
+          </div>
+
+          <figure class="about__media reveal reveal--right" data-delay="150">
+            <div class="parallax-frame" data-parallax>
+              <img class="about__img" src="assets/img/pool-1.jpg" alt="Бесконечный бассейн отеля AURUM на фоне моря" loading="lazy" decoding="async" width="1920" height="1440" data-speed="0.14">
+            </div>
+            <figcaption class="about__badge glass">
+              <strong>9.8</strong>
+              <span>рейтинг гостей<br>за 2025 год</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Счётчики -->
+        <div class="counters reveal" data-delay="150">
+          <div class="counters__item">
+            <span class="counters__num"><b data-count="42">0</b></span>
+            <span class="counters__label">номера с видом на море</span>
+          </div>
+          <div class="counters__item">
+            <span class="counters__num"><b data-count="5">0</b><i class="counters__sup">★</i></span>
+            <span class="counters__label">официальная категория</span>
+          </div>
+          <div class="counters__item">
+            <span class="counters__num"><b data-count="800">0</b></span>
+            <span class="counters__label">м² спа-центра</span>
+          </div>
+          <div class="counters__item">
+            <span class="counters__num"><b data-count="9.8" data-decimals="1">0</b></span>
+            <span class="counters__label">рейтинг гостей</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 6. НОМЕРА: 3 карточки с 3D-tilt ═══════════════════ -->
+    <section class="rooms section section--surface" id="rooms">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Номера</p>
+          <h2 class="section-title">Выберите свою <em>сцену</em></h2>
+          <p class="section-sub">Три сюжета одного отпуска — от камерной классики до президентских апартаментов с двумя террасами.</p>
+        </div>
+
+        <div class="rooms__grid">
+
+          <!-- Карточка 1 -->
+          <article class="room-card reveal" data-tilt data-delay="0">
+            <div class="room-card__media">
+              <img src="assets/img/room-1.jpg" alt="Классический номер — спальня с тёплым светом и панорамным окном" loading="lazy" decoding="async" width="1700" height="960">
+            </div>
+            <div class="room-card__body">
+              <div class="room-card__top">
+                <h3 class="room-card__title">Классический</h3>
+                <span class="room-card__size">28 м²</span>
+              </div>
+              <ul class="room-card__chips" aria-label="Удобства">
+                <li class="chip">Море</li>
+                <li class="chip">Балкон</li>
+                <li class="chip">Завтрак</li>
+                <li class="chip">СПА</li>
+              </ul>
+              <div class="room-card__bottom">
+                <span class="room-card__price">18 000 ₽<i>/ночь</i></span>
+                <button class="btn btn--gold btn--sm room-card__cta" type="button" data-room="classic" data-magnetic>Выбрать номер</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Карточка 2 -->
+          <article class="room-card reveal" data-tilt data-delay="120">
+            <span class="room-card__flag">Хит сезона</span>
+            <div class="room-card__media">
+              <img src="assets/img/room-2.jpg" alt="Панорамный люкс с видом на озеро и горы" loading="lazy" decoding="async" width="1376" height="768">
+            </div>
+            <div class="room-card__body">
+              <div class="room-card__top">
+                <h3 class="room-card__title">Панорамный люкс</h3>
+                <span class="room-card__size">46 м²</span>
+              </div>
+              <ul class="room-card__chips" aria-label="Удобства">
+                <li class="chip">Море</li>
+                <li class="chip">Балкон</li>
+                <li class="chip">Завтрак</li>
+                <li class="chip">СПА</li>
+              </ul>
+              <div class="room-card__bottom">
+                <span class="room-card__price">32 000 ₽<i>/ночь</i></span>
+                <button class="btn btn--gold btn--sm room-card__cta" type="button" data-room="panorama" data-magnetic>Выбрать номер</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Карточка 3 -->
+          <article class="room-card reveal" data-tilt data-delay="240">
+            <div class="room-card__media">
+              <img src="assets/img/room-3.jpg" alt="Президентские апартаменты с камином и гостиной" loading="lazy" decoding="async" width="1439" height="900">
+            </div>
+            <div class="room-card__body">
+              <div class="room-card__top">
+                <h3 class="room-card__title">Президентские апартаменты</h3>
+                <span class="room-card__size">92 м²</span>
+              </div>
+              <ul class="room-card__chips" aria-label="Удобства">
+                <li class="chip">Море</li>
+                <li class="chip">Терраса</li>
+                <li class="chip">Завтрак</li>
+                <li class="chip">СПА</li>
+              </ul>
+              <div class="room-card__bottom">
+                <span class="room-card__price">65 000 ₽<i>/ночь</i></span>
+                <button class="btn btn--gold btn--sm room-card__cta" type="button" data-room="president" data-magnetic>Выбрать номер</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 7. СПА: split + прайс-лист ═══════════════════ -->
+    <section class="spa section" id="spa">
+      <div class="container">
+        <div class="spa__grid">
+          <div class="spa__media reveal reveal--left">
+            <div class="spa__media-main">
+              <img src="assets/img/spa-1.jpg" alt="Спа-комната AURUM с тёплым приглушённым светом" loading="lazy" decoding="async" width="1920" height="1283" data-speed="0.08">
+            </div>
+            <div class="spa__media-accent reveal" data-delay="250">
+              <img src="assets/img/spa-2.jpg" alt="Зона расслабления в спа-центре отеля" loading="lazy" decoding="async" width="1000" height="1000">
+            </div>
+          </div>
+
+          <div class="spa__content">
+            <div class="section-head section-head--left reveal">
+              <p class="kicker">Спа-центр</p>
+              <h2 class="section-title">800 м² <em>тишины</em></h2>
+              <p class="section-sub">Хаммам из травертина, бассейн с морской водой 25 метров, сауна и ледяная купель. Запись — у консьержа или заранее при бронировании.</p>
+            </div>
+
+            <ul class="spa__list reveal" data-delay="150">
+              <li class="spa__row">
+                <span class="spa__name">Хаммам · 40 мин</span>
+                <span class="spa__dots" aria-hidden="true"></span>
+                <span class="spa__price">4 500 ₽</span>
+              </li>
+              <li class="spa__row">
+                <span class="spa__name">Массаж hot stone · 90 мин</span>
+                <span class="spa__dots" aria-hidden="true"></span>
+                <span class="spa__price">7 800 ₽</span>
+              </li>
+              <li class="spa__row">
+                <span class="spa__name">Бассейн 25 м</span>
+                <span class="spa__dots" aria-hidden="true"></span>
+                <span class="spa__price spa__price--free">бесплатно для гостей</span>
+              </li>
+              <li class="spa__row">
+                <span class="spa__name">Сауна и ледяная купель · час</span>
+                <span class="spa__dots" aria-hidden="true"></span>
+                <span class="spa__price">2 900 ₽/час</span>
+              </li>
+            </ul>
+
+            <a class="btn btn--outline reveal" href="#booking" data-anchor data-delay="250" data-magnetic>Забронировать спа-визит</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 8. РЕСТОРАН «ТЕРРАСА» ═══════════════════ -->
+    <section class="restaurant section section--surface" id="restaurant">
+      <div class="container">
+        <div class="restaurant__grid">
+          <div class="restaurant__content">
+            <div class="section-head section-head--left reveal">
+              <p class="kicker">Ресторан</p>
+              <h2 class="section-title">Терраса<br><em>над бухтой</em></h2>
+            </div>
+            <p class="restaurant__p reveal" data-delay="120">Завтраки сервируются с 07:00 до 12:00 и уже включены в стоимость проживания: свежая выпечка из собственной пекарни, адыгейский сыр, инжир с побережья и яйца, приготовленные так, как вы попросите.</p>
+            <p class="restaurant__p reveal" data-delay="220">Днём и вечером террасная кухня шефа Александра Гринёва работает по принципу «поймал — приготовили»: черноморская барабулька, рапаны, овощи из хозяйства в Адлере. Вид на бухту открывается с каждого столика.</p>
+            <div class="restaurant__hours reveal" data-delay="300">
+              <div class="restaurant__hours-item">
+                <span class="restaurant__hours-time">07:00 — 12:00</span>
+                <span class="restaurant__hours-label">завтраки · включены</span>
+              </div>
+              <div class="restaurant__hours-item">
+                <span class="restaurant__hours-time">12:00 — 23:00</span>
+                <span class="restaurant__hours-label">ла-карт · терраса</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="restaurant__media">
+            <figure class="restaurant__main reveal reveal--right">
+              <img src="assets/img/breakfast-1.jpg" alt="Элегантный завтрак на террасе с видом на море" loading="lazy" decoding="async" width="1440" height="2160">
+            </figure>
+            <figure class="restaurant__small reveal" data-delay="250">
+              <img src="assets/img/breakfast-2.jpg" alt="Утренний кофе, который подают в номер в халате" loading="lazy" decoding="async" width="736" height="1104">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 9. ГАЛЕРЕЯ: masonry + lightbox ═══════════════════ -->
+    <section class="gallery section" id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Галерея</p>
+          <h2 class="section-title">Мгновения <em>AURUM</em></h2>
+          <p class="section-sub">Нажмите на фотографию, чтобы рассмотреть детали.</p>
+        </div>
+
+        <div class="gallery__masonry reveal" id="galleryGrid">
+          <figure class="gallery__item" data-caption="Бесконечный бассейн на краю террасы" tabindex="0">
+            <img src="assets/img/pool-2.jpg" alt="Бирюзовая вода бесконечного бассейна" loading="lazy" decoding="async" width="1456" height="816">
+            <figcaption class="gallery__caption">Бесконечный бассейн</figcaption>
+          </figure>
+          <figure class="gallery__item" data-caption="Люстра из кованой латуни в лобби" tabindex="0">
+            <img src="assets/img/lobby-1.jpg" alt="Лобби отеля с дизайнерской люстрой" loading="lazy" decoding="async" width="1200" height="900">
+            <figcaption class="gallery__caption">Лобби · люстра</figcaption>
+          </figure>
+          <figure class="gallery__item" data-caption="Гранд-лобби: камень, дерево и латунь" tabindex="0">
+            <img src="assets/img/lobby-2.jpg" alt="Гранд-лобби отеля AURUM" loading="lazy" decoding="async" width="1000" height="1000">
+            <figcaption class="gallery__caption">Гранд-лобби</figcaption>
+          </figure>
+          <figure class="gallery__item" data-caption="Зона отдыха спа-центра, 800 м² тишины" tabindex="0">
+            <img src="assets/img/spa-2.jpg" alt="Зона отдыха спа-центра" loading="lazy" decoding="async" width="1000" height="1000">
+            <figcaption class="gallery__caption">Спа-зона</figcaption>
+          </figure>
+          <figure class="gallery__item" data-caption="Утренний кофе подаётся в номер до 12:00" tabindex="0">
+            <img src="assets/img/breakfast-2.jpg" alt="Кофе и халат — утренний ритуал гостей" loading="lazy" decoding="async" width="736" height="1104">
+            <figcaption class="gallery__caption">Кофе в халате</figcaption>
+          </figure>
+          <figure class="gallery__item" data-caption="Панорамный люкс: озеро и горы за окном" tabindex="0">
+            <img src="assets/img/room-2.jpg" alt="Панорамный люкс с видом на озеро" loading="lazy" decoding="async" width="1376" height="768">
+            <figcaption class="gallery__caption">Панорамный люкс</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ Бегущая строка после галереи ═══════════════════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span class="marquee__part">5★ — PRIVATE BEACH — SPA 800 M² — SINCE 2016 —&nbsp;</span>
+        <span class="marquee__part">5★ — PRIVATE BEACH — SPA 800 M² — SINCE 2016 —&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════ 10. ОТЗЫВЫ: слайдер ═══════════════════ -->
+    <section class="reviews section section--surface" id="reviews">
+      <div class="container container--narrow">
+        <div class="section-head reveal">
+          <p class="kicker">Отзывы</p>
+          <h2 class="section-title">Говорят <em>гости</em></h2>
+        </div>
+
+        <div class="reviews__slider reveal" id="reviewsSlider" data-delay="120">
+          <div class="reviews__viewport">
+            <div class="reviews__track" id="reviewsTrack">
+
+              <article class="review">
+                <div class="review__stars" aria-label="Оценка 5 из 5">
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                </div>
+                <blockquote class="review__text">«Тишина, о которой мы мечтали весь год. Вид на море из номера, завтраки — отдельный вид искусства, а консьерж встретил нас на вокзале с зонтиками, потому что обещал дождь. Вернёмся в сентябре.»</blockquote>
+                <footer class="review__author">
+                  <span class="review__name">Ольга В.</span>
+                  <span class="review__meta">Москва · сентябрь 2025</span>
+                </footer>
+              </article>
+
+              <article class="review">
+                <div class="review__stars" aria-label="Оценка 5 из 5">
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                </div>
+                <blockquote class="review__text">«Спа-центр — главная причина нашей поездки. Хаммам из травертина и массаж hot stone — уровень столичных спа за вдвое большие деньги. Отдельное спасибо за поздний выезд без доплат.»</blockquote>
+                <footer class="review__author">
+                  <span class="review__name">Сергей и Марина</span>
+                  <span class="review__meta">Краснодар · июль 2025</span>
+                </footer>
+              </article>
+
+              <article class="review">
+                <div class="review__stars" aria-label="Оценка 5 из 5">
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                </div>
+                <blockquote class="review__text">«Ездить на конференции в Сочи и останавливаться где-то ещё после AURUM невозможно. Апартаменты с камином, завтрак на террасе над бухтой и команда, которая угадывает желания до того, как ты их озвучил.»</blockquote>
+                <footer class="review__author">
+                  <span class="review__name">Ирина Д.</span>
+                  <span class="review__meta">Санкт-Петербург · октябрь 2025</span>
+                </footer>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="reviews__nav">
+            <button class="reviews__arrow" id="reviewsPrev" type="button" aria-label="Предыдущий отзыв">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="reviews__dots" id="reviewsDots" role="tablist" aria-label="Выбор отзыва"></div>
+            <button class="reviews__arrow" id="reviewsNext" type="button" aria-label="Следующий отзыв">
+              <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 11. БРОНИРОВАНИЕ: контакты + форма ═══════════════════ -->
+    <section class="booking section" id="booking">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">Бронирование</p>
+          <h2 class="section-title">Ваш ключ <em>уже ждёт</em></h2>
+        </div>
+
+        <div class="booking__grid">
+          <!-- Контакты -->
+          <aside class="booking__info reveal reveal--left" data-delay="100">
+            <h3 class="booking__info-title">Контакты</h3>
+            <ul class="booking__contacts">
+              <li class="booking__contact">
+                <span class="booking__contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                </span>
+                <span class="booking__contact-body"><strong>Адрес</strong>пр. Виноградный, 12, Сочи</span>
+              </li>
+              <li class="booking__contact">
+                <span class="booking__contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                </span>
+                <span class="booking__contact-body"><strong>Телефон</strong><a href="tel:+78612053390">+7 (861) 205-33-90</a></span>
+              </li>
+              <li class="booking__contact">
+                <span class="booking__contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </span>
+                <span class="booking__contact-body"><strong>Стойка приёма</strong>круглосуточно, 24/7</span>
+              </li>
+              <li class="booking__contact">
+                <span class="booking__contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                </span>
+                <span class="booking__contact-body"><strong>E-mail</strong><a href="mailto:res@aurum-sochi.ru">res@aurum-sochi.ru</a></span>
+              </li>
+            </ul>
+            <p class="booking__note">Консьерж-служба подтвердит бронь в течение 15 минут и подберёт трансфер из аэропорта Адлер.</p>
+          </aside>
+
+          <!-- Форма -->
+          <div class="booking__form-wrap reveal reveal--right" data-delay="180">
+            <form class="booking__form" id="bookingForm" novalidate>
+              <div class="field">
+                <label class="field__label" for="b-name">Ваше имя</label>
+                <input class="field__input" type="text" id="b-name" name="name" placeholder="Анна Смирнова" autocomplete="name">
+                <span class="field__error">Пожалуйста, укажите имя</span>
+              </div>
+              <div class="field">
+                <label class="field__label" for="b-phone">Телефон</label>
+                <input class="field__input" type="tel" id="b-phone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel">
+                <span class="field__error">Введите номер полностью</span>
+              </div>
+              <div class="field">
+                <label class="field__label" for="b-checkin">Заезд</label>
+                <input class="field__input" type="date" id="b-checkin" name="checkin">
+                <span class="field__error">Выберите дату заезда</span>
+              </div>
+              <div class="field">
+                <label class="field__label" for="b-checkout">Выезд</label>
+                <input class="field__input" type="date" id="b-checkout" name="checkout">
+                <span class="field__error">Выезд — не раньше заезда</span>
+              </div>
+              <div class="field">
+                <label class="field__label" for="b-room">Номер</label>
+                <select class="field__input" id="b-room" name="room">
+                  <option value="classic" data-price="18000">Классический · 28 м² · 18 000 ₽</option>
+                  <option value="panorama" data-price="32000" selected>Панорамный люкс · 46 м² · 32 000 ₽</option>
+                  <option value="president" data-price="65000">Президентские апартаменты · 92 м² · 65 000 ₽</option>
+                </select>
+              </div>
+              <div class="field">
+                <label class="field__label" for="b-guests">Гости</label>
+                <select class="field__input" id="b-guests" name="guests">
+                  <option value="1">1 гость</option>
+                  <option value="2" selected>2 гостя</option>
+                  <option value="3">3 гостя</option>
+                  <option value="4">4 гостя</option>
+                </select>
+              </div>
+
+              <!-- Живой расчёт стоимости -->
+              <p class="booking__price" id="bookingPrice" aria-live="polite">Выберите даты заезда и выезда</p>
+
+              <button class="btn btn--gold btn--lg booking__submit" type="submit" data-magnetic>Отправить заявку</button>
+              <p class="booking__fineprint">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных. Завтрак включён в стоимость.</p>
+            </form>
+
+            <!-- Успешная отправка -->
+            <div class="booking__success" id="bookingSuccess" aria-hidden="true">
+              <svg class="booking__check" viewBox="0 0 72 72" aria-hidden="true">
+                <circle class="booking__check-circle" cx="36" cy="36" r="33" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path class="booking__check-mark" d="M22 37.5l9.5 9.5L51 27" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <h3 class="booking__success-title">Заявка отправлена</h3>
+              <p class="booking__success-text">Консьерж свяжется с вами в течение 15 минут, чтобы подтвердить бронирование.</p>
+              <button class="btn btn--outline btn--sm" id="bookingReset" type="button">Отправить ещё одну</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════ 12. FOOTER ═══════════════════ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__logo">AURUM</p>
+          <p class="footer__tagline">Бутик-отель 5★ на берегу моря.<br>Роскошь, которую хочется потрогать.</p>
+          <div class="footer__stars" aria-label="Пять звёзд">★ ★ ★ ★ ★</div>
+        </div>
+
+        <nav class="footer__col" aria-label="Навигация в подвале">
+          <h4 class="footer__title">Навигация</h4>
+          <a class="footer__link" href="#rooms" data-anchor>Номера</a>
+          <a class="footer__link" href="#spa" data-anchor>Спа</a>
+          <a class="footer__link" href="#restaurant" data-anchor>Ресторан</a>
+          <a class="footer__link" href="#gallery" data-anchor>Галерея</a>
+          <a class="footer__link" href="#booking" data-anchor>Бронирование</a>
+        </nav>
+
+        <div class="footer__col">
+          <h4 class="footer__title">Контакты</h4>
+          <p class="footer__text">пр. Виноградный, 12<br>Сочи, Краснодарский край</p>
+          <a class="footer__link" href="tel:+78612053390">+7 (861) 205-33-90</a>
+          <a class="footer__link" href="mailto:res@aurum-sochi.ru">res@aurum-sochi.ru</a>
+          <p class="footer__text">Стойка приёма — 24/7</p>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__title">Соцсети</h4>
+          <div class="footer__socials">
+            <a class="footer__social" href="https://t.me/aurum_sochi" target="_blank" rel="noopener" aria-label="Telegram">
+              <svg viewBox="0 0 24 24"><path d="M22 2L11 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2l-7 20-4-9-9-4 20-7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="footer__social" href="https://wa.me/78612053390" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 9.8c.3 2.4 2.3 4.4 4.7 4.7l1.3-1.3 2 1-.4 1.6c-3.6.6-7.9-3.7-7.3-7.3L11 8.1l1 2-1.3 1.3z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="footer__social" href="https://instagram.com/aurum.sochi" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+            </a>
+            <a class="footer__social" href="https://vk.com/aurum_sochi" target="_blank" rel="noopener" aria-label="ВКонтакте">
+              <svg viewBox="0 0 24 24"><path d="M4 8.5h2.6c.4 3 1.8 5 2.9 5.4V8.5h2.4v3.1c.9-.2 2-1.5 2.5-3.1h2.4c-.4 1.9-1.6 3.4-2.6 4.1 1.2.6 2.7 2 3.4 3.9h-2.6c-.6-1.4-1.8-2.6-3.1-2.9v2.9h-.6c-4 0-7-3.4-7.3-8z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <p class="footer__text footer__text--gap">Частный пляж · трансфер · валет-парковка</p>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 Бутик-отель AURUM · Разработка: Kwork Premium</p>
+        <button class="footer__policy" id="policyLink" type="button">Политика конфиденциальности</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════ Lightbox галереи ═══════════════════ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фотографии" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Закрыть">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <button class="lightbox__arrow lightbox__arrow--prev" id="lightboxPrev" type="button" aria-label="Предыдущее фото">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" id="lightboxImg" src="" alt="">
+      <figcaption class="lightbox__caption">
+        <span id="lightboxCaption"></span>
+        <span class="lightbox__counter" id="lightboxCounter"></span>
+      </figcaption>
+    </figure>
+    <button class="lightbox__arrow lightbox__arrow--next" id="lightboxNext" type="button" aria-label="Следующее фото">
+      <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <!-- ═══════════════════ Служебные элементы ═══════════════════ -->
+  <button class="to-top" id="toTop" type="button" aria-label="Наверх">
+    <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
